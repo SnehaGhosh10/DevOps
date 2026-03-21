@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <!-- setter-injection -->
+    <bean id="employee" class="org.example.Entity.Employee" lazy-init="true">
+
+        <property name="id" value="1"></property>
+        <property name="name" value="abc"></property>
+        <property name="gender" value="male"></property>
+        <property name="salary" value="30000"></property>
+
+    </bean>
+
+    <!-- constructor-injection -->
+    <bean id="empbean2" class="org.example.Entity.Employee" lazy-init="true">
+
+        <constructor-arg value="2" />
+        <constructor-arg value="sahbf" />
+        <constructor-arg value="male" />
+        <constructor-arg value="30000" />
+
+    </bean>
+
+    <!-- inject bean using ref -->
+    <bean id="user" class="org.example.Entity.User" autowire="byName">
+
+        <property name="id" value="12"></property>
+        <property name="name" value="nime"></property>
+        <property name="email" value="lime@gmail.com"></property>
+
+    </bean>
+
+    <bean name="empbean4" class="org.example.Entity.PojoClass" autowire="byName"></bean>
+
+</beans>
